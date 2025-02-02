@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia';
 import { ref } from 'vue';
-import type { Employee, ApiResponse } from '../types/employee';
+import type { Employee, ApiResponse } from '@/types/employee';
 
 const API_BASE_URL = '/api';
 

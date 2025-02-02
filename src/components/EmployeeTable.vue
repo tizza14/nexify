@@ -1,7 +1,7 @@
 <template>
   <div class="p-4">
-    <div class="mb-4 flex justify-between items-center">
-      <div class="space-x-2">
+    <div class="mb-4">
+      <div class="flex items-center justify-between">
         <button
           @click="addNewEmployee"
           :disabled="isLoading"
@@ -38,48 +38,56 @@
       <table class="min-w-full divide-y divide-gray-200">
         <thead class="bg-gray-50">
           <tr>
-            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
-            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Birthday</th>
-            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Salary</th>
-            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Address</th>
+            <th scope="col" class="px-6 py-3 text-left font-medium text-gray-700 tracking-wider">Name</th>
+            <th scope="col" class="px-6 py-3 text-left font-medium text-gray-700 tracking-wider">Birthday</th>
+            <th scope="col" class="px-6 py-3 text-left font-medium text-gray-700 tracking-wider">Salary</th>
+            <th scope="col" class="px-6 py-3 text-left font-medium text-gray-700 tracking-wider">Address</th>
           </tr>
         </thead>
         <tbody class="bg-white divide-y divide-gray-200">
           <tr v-for="(employee, index) in employees" :key="index">
             <td class="px-6 py-4 whitespace-nowrap">
               <input
+                name="name"
                 v-model="employee.Name"
                 class="border rounded px-2 py-1 w-full"
                 type="text"
                 placeholder="Enter name"
+                autocomplete="name"
               />
             </td>
             <td class="px-6 py-4 whitespace-nowrap">
               <input
+                name="birthday"
                 :value="formatDate(employee.DateOfBirth)" @input="updateBirthday(employee, $event)"
                 class="border rounded px-2 py-1"
                 type="date"
+                autocomplete="bday"
               />
             </td>
             <td class="px-6 py-4 whitespace-nowrap">
               <div class="flex items-center space-x-2">
                 <input
+                  name="salary"
                   v-model.number="employee.Salary"
                   class="w-32"
                   type="range"
                   min="0"
                   max="100000"
                   step="1000"
+                  autocomplete="salary"
                 />
                 <span class="text-sm text-gray-600">{{ employee.Salary }}</span>
               </div>
             </td>
             <td class="px-6 py-4 whitespace-nowrap">
               <input
+                name="address"
                 v-model="employee.Address"
                 class="border rounded px-2 py-1 w-full"
                 type="text"
                 placeholder="Enter address"
+                autocomplete="address"
               />
             </td>
           </tr>

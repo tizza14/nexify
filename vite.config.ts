@@ -1,16 +1,12 @@
-// vite.config.ts
 import { fileURLToPath, URL } from 'node:url'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-// 暫時移除 DevTools
-// import vueDevTools from 'vite-plugin-vue-devtools'
+import vueDevTools from 'vite-plugin-vue-devtools'
 
-// https://vite.dev/config/
 export default defineConfig({
   plugins: [
     vue(),
-    // 暫時註解掉 DevTools
-    // vueDevTools(),
+    vueDevTools(),
   ],
   resolve: {
     alias: {
